@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bootstrap.css" level="project" />
+    <orderEntry type="library" name="scss" level="project" />
   </component>
 </module>

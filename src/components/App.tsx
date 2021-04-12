@@ -4,6 +4,7 @@ import AuthProvider from "../contexts/AuthContext";
 import Signup from "./Signup";
 import Dashboard from "./Dashboard"
 import Login from './Login'
+import { useSelector, useDispatch } from 'react-redux'
 // @ts-ignore
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
