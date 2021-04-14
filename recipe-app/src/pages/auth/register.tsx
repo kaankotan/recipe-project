@@ -54,43 +54,52 @@ const RegisterPage: React.FC<IPageProps> = props => {
         <div className="register">
             <div className="register__container">
                 <div className="register__container--title">
-                    <h3>Welcome to Foodtaculus</h3>
+                    <h3>Welcome to Tomateux</h3>
                     <p>Find best food ideas</p>
                 </div>
 
-                <form action="">
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                        onChange={e => setEmail(e.target.value)}
-                        value={email}
-                        autoComplete="username"
-                    />
+                <div className="register__form">
+                    <div>
+                        <form action="">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                placeholder="Email"
+                                onChange={e => setEmail(e.target.value)}
+                                value={email}
+                                autoComplete="username"
+                            />
 
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="Create a password"
-                        onChange={e => setPassword(e.target.value)}
-                        value={password}
-                        autoComplete="new-password"
-                    />
-                    <button
-                        type="submit"
-                        className="login__signInButton"
-                        disabled={register}
-                        onClick={() => signUpWithEmailAndPassword()}>
-                        Continue
-                     </button>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                placeholder="Create a password"
+                                onChange={e => setPassword(e.target.value)}
+                                value={password}
+                                autoComplete="new-password"
+                            />
 
-                    <p>
-                        By continuing, you agree to Amazon's Conditions
-                        of Use and Privacy Notice.
-                    </p>
-                </form>
+                        </form>
+
+                        <button
+                            type="submit"
+                            className="register__signInButton"
+                            disabled={register}
+                            onClick={() => signUpWithEmailAndPassword()}>
+                            Continue
+                            </button>
+
+                        <ErrorText error={error} />
+                        <p className="register__options">OR</p>
+
+                        <p>
+                            By continuing, you agree to Amazon's Conditions
+                            of Use and Privacy Notice.
+                        </p>
+                    </div>
+                </div>
 
                 <div className="a-divider a-divider-break">
                     <small>
@@ -101,7 +110,7 @@ const RegisterPage: React.FC<IPageProps> = props => {
                     </small>
                 </div>
 
-                <ErrorText error={error} />
+
             </div>
 
         </div>

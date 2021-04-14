@@ -10,9 +10,11 @@ const ErrorText: React.FunctionComponent<IErrorTextProps> = props => {
     if (error === '') return null;
 
     return (
-        <small style={{ color: 'red' }}>
-            {error}
-        </small>
+        <small style={{
+            color: 'red',
+        }}>
+            { error}
+        </small >
     );
 }
 
