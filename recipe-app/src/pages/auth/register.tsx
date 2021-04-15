@@ -95,7 +95,7 @@ const RegisterPage: React.FC<IPageProps> = props => {
                         <p className="register__options">OR</p>
 
                         <p>
-                            By continuing, you agree to Amazon's Conditions
+                            By continuing, you agree to our conditions
                             of Use and Privacy Notice.
                         </p>
                     </div>
