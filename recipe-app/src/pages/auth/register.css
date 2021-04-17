@@ -94,6 +94,23 @@
     margin-bottom: 10px;
 }
 
+.socialBtn{
+    border: 2px solid rgb(136, 131, 131);
+    background-color: transparent;
+    height: 40px;
+    border-radius: 20px;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0px 18px;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+    outline: currentcolor none medium;
+    box-shadow: none;
+    cursor: pointer;
+    text-align: center;
+}
+
 .register__options{
 
     margin-bottom: 16px;
