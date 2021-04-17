@@ -15,6 +15,7 @@ import RecipesTile from "./RecipesTile";
     
   
     var url = `https://api.edamam.com/search?q=${query}&app_id=5b1fa91c&app_key=650369383b992b578f0dc4741524dfe7&health=alcohol-free`
+
   
     async function getRecipes(){
       var result = await Axios.get(url);

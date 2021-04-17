@@ -4,11 +4,12 @@ import AuthProvider from "../contexts/AuthContext";
 import Signup from "./Signup";
 import Dashboard from "./Dashboard"
 import Login from './Login'
-import { useSelector, useDispatch } from 'react-redux'
+import Search from './Search'
 // @ts-ignore
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import ForgotPassword from './ForgotPassword'
+import './app-style.css';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot-password" component={ForgotPassword} />
+              <Route path="/search" component={Search} />
             </Switch>
           </AuthProvider>
         </Router>
