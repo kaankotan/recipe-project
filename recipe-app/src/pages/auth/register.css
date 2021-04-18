@@ -94,8 +94,19 @@
     margin-bottom: 10px;
 }
 
+.socialmd{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+svg{
+    position:absolute;
+    display: flex;
+}
+
 .socialBtn{
-    border: 2px solid rgb(136, 131, 131);
+    border: 1px solid rgb(185, 183, 183);
     background-color: transparent;
     height: 40px;
     border-radius: 20px;
@@ -121,3 +132,33 @@
     color: rgb(51, 51, 51);
     font-weight: bold;
 }
+
+.tos{
+    font-size: 11px;
+    font-weight: normal;
+    color: rgb(118, 118, 118);
+}
+
+.a-divider {
+    margin-top: 20px;
+}
+
+.a-divider__text {
+    color: rgb(51, 51, 51);
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.a-divider__text  span{
+    color:rgb(230, 0, 35);
+    margin-left: 1px;
+    font-size: 14px;
+}
+
+ a {
+    text-decoration: none;
+    font-size: 16px
+}
+
+
+

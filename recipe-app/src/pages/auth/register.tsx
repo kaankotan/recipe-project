@@ -23,9 +23,11 @@ const RegisterPage: React.FC<IPageProps> = props => {
         setRegister(true)
 
         auth.createUserWithEmailAndPassword(email, password)
-            .then(result => {
-                logging.info(result)
-                history.push('/login')
+            .then(auth => {
+                logging.info(auth)
+                if (auth) {
+                    history.push('/')
+                }
             })
             .catch(error => {
                 logging.error(error)
@@ -91,19 +93,18 @@ const RegisterPage: React.FC<IPageProps> = props => {
                             Continue
                             </button>
 
-                        <ErrorText error={error} />
-                        <p className="register__options">OR</p>
+                        <ErrorText error={error} /> <br />
 
-                        <p>
+                        <span className="tos">
                             By continuing, you agree to our conditions
                             of Use and Privacy Notice.
-                        </p>
+                        </span>
                     </div>
                 </div>
 
-                <div className="a-divider a-divider-break">
+                <div className="a-divider">
                     <small>
-                        <p className="">Already have an account?
+                        <p className="a-divider__text">Already have an account?
                         <Link to="/login">
                                 <span>Login</span>
                             </Link></p>
