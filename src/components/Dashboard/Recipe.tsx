@@ -19,9 +19,9 @@ export default function Recipe({recipe}: any) {
   return (
     <div>
       <h1 className="recipe_name">{recipe.name}</h1>
-      <button className="app__submit" onClick={deleteRecipe}>Delete</button>
-      <button className="app__submit" onClick={updateRecipe}>Update</button>
-      <button className="app__submit" >Share</button>
+      <button className="app_button" onClick={deleteRecipe}>Delete</button>
+      <button className="app_button" onClick={updateRecipe}>Update</button>
+      <button className="app_button" >Share</button>
     </div>
   )
 }

@@ -118,3 +118,28 @@ body{
   font-size: 12px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.app_button{
+    padding: 3px 10px;
+    font-size: 15px;
+    margin-left: 6px;
+    background-color: rgb(111, 101, 204);
+    border: 2px solid rgb(111, 101, 204);
+    color: white;
+    border-radius: 5px;
+    border-style: inset;
+    cursor: pointer;
+
+}
+
+.app_button:hover {
+  padding: 3px 10px;
+  font-size: 15px;
+  margin-left: 6px;
+  background-color: white;
+  border: 2px solid rgb(111, 101, 204);
+  color: rgb(111, 101, 204);
+  border-radius: 5px;
+  border-style: inset;
+  cursor: pointer;
+}
