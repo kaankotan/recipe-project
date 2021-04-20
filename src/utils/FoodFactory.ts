@@ -106,5 +106,69 @@ export const Butter: Food = {
   amountType: 'ml'
 }
 
-export const ingredients = [Tomato, Potato, Flour, Oil, Rice, Butter, Cheese, Corn, Milk, Vinegar, Water]
+export const Egg: Food = {
+  name: 'Egg',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['egg'],
+  amount: null,
+  amountType: 'piece'
+}
+
+export const Salt: Food = {
+  name: 'Salt',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['salt'],
+  amount: null,
+  amountType: 'grams'
+}
+
+export const Pepper: Food = {
+  name: 'Pepper',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['pepper'],
+  amount: null,
+  amountType: 'grams'
+}
+
+export const Paprika: Food = {
+  name: 'Paprika',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['paprika'],
+  amount: null,
+  amountType: 'grams'
+}
+
+export const Chicken: Food = {
+  name: 'Chicken',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['chiken'],
+  amount: null,
+  amountType: 'Kilo'
+}
+
+export const Beef: Food = {
+  name: 'Beef',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['beef'],
+  amount: null,
+  amountType: 'Kilo'
+}
+
+export const Onion: Food = {
+  name: 'Onion',
+  variations: null,
+  selectedVariation: null,
+  keywords: ['onion'],
+  amount: null,
+  amountType: 'piece'
+}
+
+export const ingredients = [Tomato, Potato, Flour, Oil, Rice, Butter, Cheese, Corn, Milk, Vinegar, Water,
+Egg, Salt, Pepper, Paprika,Chicken, Beef, Onion, ]
 

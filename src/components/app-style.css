@@ -101,3 +101,12 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+.recipe_name{
+  max-width: 200px;
+  text-align: left;
+  margin: 12px 0px;
+  font-size: 20px;
+  color: rgb(250, 105, 1);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
