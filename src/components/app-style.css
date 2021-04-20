@@ -1,5 +1,6 @@
 body{
     background: radial-gradient(#e5e5e5,#ffff, #e5e5e5);
+
 }
 
 .app__name{
@@ -52,6 +53,9 @@ body{
     display: grid;
     grid-template-columns: 230px 230px;
     align-items: baseline;
+    justify-content: center;
+    align-items: center;
+
   }
 
 .recipeTile__img{
@@ -68,6 +72,7 @@ body{
   border-radius: 4px;   
   transform: scale(1);
   transition: transform 0.3s ease;
+  
 }
 
 .recipeTile__img:hover{
@@ -76,6 +81,7 @@ body{
   object-fit: cover;
   border-radius: 4px;   
   transform: scale(1.1);
+  border-style: outset;
 
 }
 
@@ -89,4 +95,9 @@ body{
 
 .recipeTile{
   cursor: pointer;
+}
+
+.w-100{
+  justify-content: center;
+  align-items: center;
 }

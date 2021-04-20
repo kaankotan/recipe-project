@@ -34,8 +34,8 @@ export default function Signup() {
 	}
 
 	return (
-		<div style={{maxWidth: "400px"}}>
-			<Card>
+		<div style={{marginLeft:'350px', maxWidth:'400px'}}>
+			<Card > 
 				<Card.Body>
 					<h2 className="text-center mb-3">Sign Up</h2>
 					{error && <Alert variant="danger">{error}</Alert>}

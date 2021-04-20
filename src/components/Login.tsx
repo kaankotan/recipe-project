@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext'
 // @ts-ignore
 import { Link, useHistory } from 'react-router-dom'
 
+
 export default function Login () {
 	const emailRef = useRef() as MutableRefObject<HTMLInputElement>
 	const passwordRef = useRef() as MutableRefObject<HTMLInputElement>
@@ -28,8 +29,8 @@ export default function Login () {
 	}
 
 	return (
-		<div style={{maxWidth: "400px"}}>
-			<Card>
+		<div className="w-100" style={{maxWidth: "400px"}}>
+			<Card >
 				<Card.Body>
 					<h2 className="text-center mb-3">Log In</h2>
 					{error && <Alert variant="danger">{error}</Alert>}

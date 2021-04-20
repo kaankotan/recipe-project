@@ -1,5 +1,6 @@
 import React from 'react'
 import firebase from 'firebase';
+import '../app-style.css'
 
 export default function Recipe({recipe}: any) {
 
@@ -18,9 +19,9 @@ export default function Recipe({recipe}: any) {
   return (
     <div>
       <h1>{recipe.name}</h1>
-      <button onClick={deleteRecipe}>Delete</button>
-      <button onClick={updateRecipe}>Update</button>
-      <button>Share</button>
+      <button className="app__submit" onClick={deleteRecipe}>Delete</button>
+      <button className="app__submit" onClick={updateRecipe}>Update</button>
+      <button className="app__submit" >Share</button>
     </div>
   )
 }

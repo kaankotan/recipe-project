@@ -7,6 +7,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {NumberState} from "../../types";
 import RecipeList from './RecipeList';
+
 // it is like useAuth Hook?
 
 export default function Dashboard() {
@@ -46,6 +47,8 @@ export default function Dashboard() {
             <Button onClick={incrementNumber} >+</Button>
           </Card.Body>
         </Card>
+        <Link to="/add-recipe" className="btn btn-primary w-100 mt-3">Add Recipe</Link>
+        <Link to="/search" className="btn btn-primary w-100 mt-3 shadow">Search Recipe</Link>
         <Card>
           <Card.Body>
             <h2 className="text-center mb-3">Profile</h2>
@@ -59,8 +62,7 @@ export default function Dashboard() {
             Log Out!
           </Button>
         </div>
-        <Link to="/add-recipe" className="btn btn-primary w-100 mt-3">Add Recipe</Link>
-        <Link to="/search" className="btn btn-primary w-100 mt-3 shadow">Search Recipe</Link>
+        
       </>
   )
 }
