@@ -28,7 +28,7 @@ export default function Login () {
 	}
 
 	return (
-		<div>
+		<div style={{maxWidth: "400px"}}>
 			<Card>
 				<Card.Body>
 					<h2 className="text-center mb-3">Log In</h2>
@@ -36,13 +36,13 @@ export default function Login () {
 					<Form onSubmit={handleSubmit}>
 						<Form.Group id="email">
 							<Form.Label>Email</Form.Label>
-							<Form.Control type="email" ref={emailRef} required />
+							<Form.Control type="email" ref={emailRef} defaultValue={"test@example.com"} required />
 						</Form.Group>
 						<Form.Group id="password">
 							<Form.Label>password</Form.Label>
-							<Form.Control type="password" ref={passwordRef} required />
+							<Form.Control type="password" ref={passwordRef} defaultValue={"123123"} required />
 						</Form.Group>
-						<Button disabled={loading} className="w-100" type="submit">Log In</Button>
+						<Button disabled={loading} className="w-100 shadow" type="submit">Log In</Button>
 					</Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
