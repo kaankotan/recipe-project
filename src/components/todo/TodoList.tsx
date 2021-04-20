@@ -14,7 +14,6 @@ export default function TodoList() {
       for (let id in todos) {
         todoList.push({ id,...todos[id] })
       }
-      console.log(todoList);
       setTodoList(todoList);
     })
   },[])

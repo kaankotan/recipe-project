@@ -2,8 +2,6 @@ import React from 'react'
 import firebase from 'firebase';
 
 export default function Recipe({recipe}: any) {
-  console.log("Recipe");
-  console.log(recipe);
 
   const deleteRecipe = () => {
     const recipeRef = firebase.database().ref("CustomRecipes").child(recipe.id)

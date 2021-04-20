@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Button, Alert } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext'
 import firebase from 'firebase';
 // @ts-ignore
 import { Link, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import {NumberState} from "../types";
+import {NumberState} from "../../types";
 import RecipeList from './RecipeList';
 // it is like useAuth Hook?
 
@@ -14,7 +14,7 @@ export default function Dashboard() {
   const { currentUser, logout } = useAuth()
   const { history } = useHistory()
 
-  const amount = useSelector<NumberState, number>(state => state.someNumber)
+  const amount = useSelector<any, number>(state => state.numberReducer.someNumber)
   const dispatch = useDispatch()
 
   function incrementNumber() {

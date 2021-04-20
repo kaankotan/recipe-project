@@ -34,7 +34,7 @@ export default function Signup() {
 	}
 
 	return (
-		<div>
+		<div style={{maxWidth: "400px"}}>
 			<Card>
 				<Card.Body>
 					<h2 className="text-center mb-3">Sign Up</h2>
