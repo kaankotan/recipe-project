@@ -110,3 +110,11 @@ body{
   color: rgb(250, 105, 1);
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.recipeTile__details{
+  max-width: 200px;
+  text-align: center;
+  margin: 5pxpx 0px;
+  font-size: 12px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
