@@ -20,6 +20,7 @@ const LoginPage: React.FC<IPageProps> = props => {
 
     const signUpWithEmailAndPassword = () => {
 
+
         if (error !== '') setError('')
         setLogin(true)
 
@@ -90,7 +91,7 @@ const LoginPage: React.FC<IPageProps> = props => {
                         <button
                             type="submit"
                             className="register__signInButton"
-                            disabled={login}
+                            // disabled={login}
                             onClick={() => signUpWithEmailAndPassword()}>
                             Continue
                         </button>
