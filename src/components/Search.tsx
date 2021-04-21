@@ -12,9 +12,10 @@ import RecipesTile from "./RecipesTile";
   function Search() {
     const [query, setquery] = useState("");
     const [recipes, setrecipes] = useState([])
+    const [healthLabel, sethealthLabel] = useState("vegan")
     
   
-    var url = `https://api.edamam.com/search?q=${query}&app_id=5b1fa91c&app_key=650369383b992b578f0dc4741524dfe7&health=alcohol-free`
+    var url = `https://api.edamam.com/search?q=${query}&app_id=5b1fa91c&app_key=650369383b992b578f0dc4741524dfe7&health=${healthLabel}`
 
   
     async function getRecipes(){
@@ -38,6 +39,21 @@ import RecipesTile from "./RecipesTile";
             placeholder="enter engridient"
             value={query} onChange={(e) => setquery(e.target.value)}/>
           <input className="app__submit text-center mt-2 shadow" type="submit" value="Search" />
+          <select className="app_healthLabels">
+            <option onClick={() => sethealthLabel("vegan")}>Vegan</option>
+            <option onClick={() => sethealthLabel("vegetarian")}>Vegetarian</option>
+            <option onClick={() => sethealthLabel("paleo")}>Paleo</option>
+            <option onClick={() => sethealthLabel("dairy-free")}>Dairy-Free</option>
+            <option onClick={() => sethealthLabel("gluten-free")}>Gluten-Free</option>
+            <option onClick={() => sethealthLabel("wheat-free")}>Wheat-Free</option>
+            <option onClick={() => sethealthLabel("low-sugar")}>Low-Sugar</option>
+            <option onClick={() => sethealthLabel("egg-free")}>Egg-Free</option>
+            <option onClick={() => sethealthLabel("peanut-free")}>Peanut-Free</option>
+            <option onClick={() => sethealthLabel("tree-nut-free")}>Tree-Nut-Free</option>
+            <option onClick={() => sethealthLabel("soy-free")}>Soy-Free</option>
+            <option onClick={() => sethealthLabel("fish-free")}>Fish-Free</option>
+            <option onClick={() => sethealthLabel("shelfish-free")}>Shelfish-Free</option>
+          </select>
         </form>
         
         <div className="app__recipes">

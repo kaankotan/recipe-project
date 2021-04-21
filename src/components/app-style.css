@@ -55,7 +55,6 @@ body{
     align-items: baseline;
     justify-content: center;
     align-items: center;
-
   }
 
 .recipeTile__img{
@@ -72,6 +71,7 @@ body{
   border-radius: 4px;   
   transform: scale(1);
   transition: transform 0.3s ease;
+  align-items: baseline;
   
 }
 
@@ -89,8 +89,9 @@ body{
   max-width: 200px;
   text-align: center;
   margin: 12px 0px;
-  font-size: 18px;
+  font-size: 10px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+  align-items: baseline;
 }
 
 .recipeTile{
@@ -109,14 +110,7 @@ body{
   font-size: 20px;
   color: rgb(250, 105, 1);
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.recipeTile__details{
-  max-width: 200px;
-  text-align: center;
-  margin: 5pxpx 0px;
-  font-size: 12px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  align-items: baseline;
 }
 
 .app_button{
@@ -142,4 +136,11 @@ body{
   border-radius: 5px;
   border-style: inset;
   cursor: pointer;
+}
+
+.app_healthLabels{
+  padding: 7px 8px;
+  margin-left: 6px;
+  border-radius: 4px;
+
 }
