@@ -19,13 +19,7 @@
 }
 
 .header__input{
-    /* display: flex;
-    align-items: center;
-    background-color: rgb(240, 242, 245);
-    padding: 0 5px;
-    margin: 0 50px;
-    flex: 1;
-    border-radius: 999px; */
+
     background-color: #efefef;
     display: flex;
     height: 48px;
@@ -69,8 +63,47 @@ input :focus {
     display: flex;
     flex: 1;
     justify-content: center;
+    align-items: center;
 }
 
+.header__option {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    cursor: pointer;
+}
+
+.header__option:hover{
+    background-color: #eff2f5;
+    border-radius: 10px;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: none;
+}
+
+.MuiSvgIcon-root{
+    fill: grey;
+}
+
+.MuiSvgIcon-fontSizeLarge {
+    font-size: 3rem;
+}
+
+.header__option > .MuiSvgIcon-root {
+    color:grey;
+}
+
+.header__option:hover > .MuiSvgIcon-root {
+    color: #2e81f4;
+}
+
+.header__option--active > .MuiSvgIcon-root {
+    color: #2e81f4;
+}
+
+.header__option--active {
+    border-bottom: 4px solid #2e81f4 ;
+}
 
 .header__right{
     display: flex;
@@ -79,11 +112,13 @@ input :focus {
 .header__info {
     display: flex;
     align-items: center; 
+    margin-left: 20px;
 }
 
 .header__option {
    margin-right: 50px;
   }
+
 
 .header__optionLineOne {
     font-size: 14px;
@@ -96,4 +131,5 @@ input :focus {
     margin-left: 10px;
     color: rgb(187, 3, 3);
   }
+
   

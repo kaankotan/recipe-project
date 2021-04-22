@@ -1,41 +1,25 @@
-import React, { useState } from 'react'
-import IPageProps from "../../interfaces/page";
+import React, { useState, useEffect } from 'react'
 import IconButton from '@material-ui/core/IconButton'
-import SearchIcon from '@material-ui/icons/Search'
-import Axios from "axios"
-import { Link } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { useStateValue } from '../../StateProvider'
 import { auth } from '../../config/firebase'
-import './header.css'
+import './styles/header.css'
 import logo from '../../assets/food.svg'
-import { RecipeCard } from './cards';
+import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy'
+import SubscriptionsIcon from '@material-ui/icons/Subscriptions'
+import StorefrontIcon from '@material-ui/icons/Storefront'
+import KitchenIcon from '@material-ui/icons/Kitchen';
 
 
-
-
-const Header: React.FC<IPageProps> = props => {
-
-    const [query, setQuery] = useState("");
-    const [recipes, setrecipes] = useState([])
+const Header = props => {
+    const history = useHistory();
     const [{ user }, dispatch] = useStateValue()
 
 
-
-
-    var url = `https://api.edamam.com/search?q=${query}app_id=5b1fa91c&app_key=650369383b992b578f0dc4741524dfe7`
-
-
-    async function getRecipes() {
-        var result = await Axios.get(url);
-        setrecipes(result.data.hits)
-        console.log(result.data);
-
+    const AddRecipe = () => {
+        history.push('/new-recipe')
     }
 
-    const onSearchSubmit = (e: any) => {
-        e.preventDefault();
-        getRecipes()
-    }
 
     const handleAuthentication = () => {
         if (user) {
@@ -43,7 +27,7 @@ const Header: React.FC<IPageProps> = props => {
         }
     }
 
-    const isUser: any = !user
+    const isUser = !user
 
 
     return (
@@ -53,20 +37,31 @@ const Header: React.FC<IPageProps> = props => {
                     <img src={logo} alt="" />
                 </div>
 
+
                 <div className="header__center">
-                    <div className="header__input">
-                        <IconButton>
-                            <SearchIcon />
+                    <div className="header__option">
+                        <IconButton
+                            onClick={AddRecipe}
+                        >
+                            <LocalPharmacyIcon fontSize="large" />
                         </IconButton>
-                        <form>
-                            <input type="text" onChange={(e) => setQuery(e.target.value)} />
-                            <button type="submit" onClick={onSearchSubmit}></button>
-                        </form>
+                    </div>
+
+                    <div className="header__option">
+                        <StorefrontIcon fontSize="large" />
+                    </div>
+
+                    <div className="header__option">
+                        <KitchenIcon onClick={AddRecipe} fontSize="large" />
+                    </div>
+
+                    <div className="header__option">
+                        <SubscriptionsIcon fontSize="large" />
                     </div>
                 </div>
 
-                <div className="header__right">
 
+                <div className="header__right">
                     <div className="header__info">
                         <Link to={isUser && "/login"}>
                             <div className="header__option" onClick={handleAuthentication}>

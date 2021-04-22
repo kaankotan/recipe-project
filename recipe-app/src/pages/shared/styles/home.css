@@ -1,0 +1,64 @@
+.recipe__category {
+    text-align: center;
+}
+
+.recipe__banner {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    min-height: 16rem;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin-top: -29.99px;
+    margin-bottom: 55.98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ff9966;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+}
+
+.recipe__banner h2 {
+ color: rgb(255, 255, 255);
+ font-family: "Hind", Arial, sans-serif;
+ font-size: 42px;
+ font-weight: 700;
+ line-height: 55px;
+ margin-bottom: 37.32px;
+ transform: matrix(1, 0, 0, 1, 0, 0);
+ -moz-osx-font-smoothing: grayscale;
+}
+
+.input__wrapper {
+    width: 100%;
+    max-width: 480px;
+}
+
+.input__wrapper--input {
+    border-image-width: 1;
+    border: #000;
+    border-left-style:none;
+    font-size: 18px;
+    line-height: 27.9833px;
+    margin: 0;
+    padding-left: 28px;
+    padding-right: 84px;
+    text-align: start;
+    vertical-align: middle;
+    white-space: normal;
+    width: 480px; 
+    position: relative;
+    border-radius: 10px;
+
+}
+
+.btns {
+  position: absolute;
+  margin: 20px -50px;
+  background: transparent;
+  border: none !important;
+}
+

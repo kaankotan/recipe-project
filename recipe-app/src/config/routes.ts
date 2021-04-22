@@ -2,6 +2,7 @@ import IRoute from "../interfaces/route";
 import LoginPage from "../pages/auth/login";
 import RegisterPage from "../pages/auth/register";
 import HomePage from "../pages/home";
+import RecipeSender from "../pages/shared/RecipeSender";
 
 
 
@@ -28,6 +29,14 @@ const routes: IRoute[] = [
         exact: true,
         component: LoginPage,
         name: 'Login Page',
+        protected: false
+    },
+
+    {
+        path: '/new-recipe',
+        exact: true,
+        component: RecipeSender,
+        name: 'Add Recipe Page',
         protected: false
     },
 
