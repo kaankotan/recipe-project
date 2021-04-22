@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { numberReducer } from './numberReducer'
-import { recipeReducer } from './recipeReducer'
+import { ingredientReducer } from './ingredientReducer'
+import { shopReducer } from "./shopReducer";
 
 export default combineReducers({
     numberReducer,
-    recipeReducer
+    recipeReducer: ingredientReducer,
+    shopReducer
 })

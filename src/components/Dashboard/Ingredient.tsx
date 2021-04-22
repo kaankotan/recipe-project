@@ -21,7 +21,7 @@ export default function Ingredient({someIndex, ingredient}: any) {
         {ingredient.name}
       </Form.Label>
       <Col sm="2">
-        <Form.Control onChange={selectAmount} type="number" placeholder="Amount" />
+        <Form.Control onChange={selectAmount} type="number" placeholder="Amount" value={ingredient.amount} />
       </Col>
       <Col sm="2">
         <p className="m-0">{ingredient.amountType}</p>

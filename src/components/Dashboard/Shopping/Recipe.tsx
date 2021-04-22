@@ -1,29 +1,19 @@
 import React from 'react'
 import firebase from 'firebase';
-import {useAuth} from "../../contexts/AuthContext";
+import {useAuth} from "../../../contexts/AuthContext";
 import { Card, Button } from 'react-bootstrap';
 
-export default function Recipe({recipe}: any) {
+export default function Recipe({recipe, selected}: any) {
 
   console.log(recipe.ingredients);
 
   const {currentUser} = useAuth()
-
-  const deleteRecipe = () => {
-    const recipeRef = firebase.database().ref(`CustomRecipes/${currentUser.uid}/Recipes`).child(recipe.id)
-    recipeRef.remove()
-  }
-
-  const updateRecipe = () => {
-    // const recipeRef = firebase.database().ref("CustomRecipe").child(recipe.id)
-    // recipeRef.update({
-    //   complete: !recipe.complete,
-    // })
-  }
+  console.log(selected)
 
   return (
     <div className="mb-2">
       <Card className="mb-2" style={{ width: '18rem' }}>
+        {selected && <div style={{height: "25px", backgroundColor: "green"}}></div>}
         <Card.Body>
           <Card.Title>Recipe: {recipe.name}</Card.Title>
           <Card.Body>
@@ -36,7 +26,6 @@ export default function Recipe({recipe}: any) {
             <h5>Method</h5>
             {recipe.method}
           </Card.Body>
-          <Button onClick={deleteRecipe}>Delete</Button>
         </Card.Body>
       </Card>
     </div>
