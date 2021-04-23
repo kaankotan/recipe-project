@@ -6,7 +6,6 @@ const initialState: CustomIngredientState = {
 
 export function ingredientReducer(state: CustomIngredientState = initialState, action: any): any {
 
-  console.log(action.type);
   switch(action.type) {
     case "ADD_INGREDIENT": {
       let valid = true
@@ -59,7 +58,6 @@ export function ingredientReducer(state: CustomIngredientState = initialState, a
       }
     }
     case "RESET_INGREDIENTS": {
-      console.log('reset');
       return initialState
     }
     default:

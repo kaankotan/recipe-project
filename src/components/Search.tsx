@@ -20,7 +20,6 @@ import RecipesTile from "./RecipesTile";
     async function getRecipes(){
       var result = await Axios.get(url);
       setrecipes(result.data.hits)
-      console.log(result.data);
   
     }
   

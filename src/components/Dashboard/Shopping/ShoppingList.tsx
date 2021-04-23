@@ -39,7 +39,6 @@ export default function ShoppingList() {
   },[])
 
   function clickHandler(index: any) {
-    console.log('clicked');
     setSelectedRecipe(index);
   }
 
@@ -47,7 +46,6 @@ export default function ShoppingList() {
     let resultArray: { name: any; amount: any; amountType: any; }[] = [];
     if (recipeList !== undefined) {
       if(selectedRecipe !== undefined) {
-        console.log(recipeList[selectedRecipe].ingredients)
         recipeList[selectedRecipe].ingredients.map((element: any, index: any) => {
           if (inventory) {
             const inventoryArray = inventory[0]
@@ -71,7 +69,6 @@ export default function ShoppingList() {
         })
       }
     }
-    console.log(resultArray);
     setShoppingList(resultArray)
   }
 
@@ -103,23 +100,23 @@ export default function ShoppingList() {
               })}
             </Card.Body>
           </Card>
+          { selectedRecipe !== undefined && inventory ? <button className="btn btn-danger mt-4 mb-2" onClick={checkMissingIngredients}>Check missing ingredients</button>: null }
+          <Card className="mt-2" style={{ width: '18rem' }}>
+            <Card.Body>
+              <h5>Shopping List</h5>
+              {shoppingList && shoppingList.map((element: any, index: any) => {
+                return (
+                  <div key={`${element.name}_${index}`}>
+                    <span>{element.name}: </span>
+                    <span>{element.amount} </span>
+                    <span>{element.amountType}</span>
+                  </div>
+                )
+              })}
+            </Card.Body>
+          </Card>
         </div>
       </div>
-      { selectedRecipe !== undefined && inventory ? <button onClick={checkMissingIngredients}>Check missing ingredients</button>: null }
-      <Card className="mt-2" style={{ width: '18rem' }}>
-        <h5>Shopping List</h5>
-        <Card.Body>
-          {shoppingList && shoppingList.map((element: any, index: any) => {
-            return (
-              <div key={`${element.name}_${index}`}>
-                <span>{element.name}: </span>
-                <span>{element.amount} </span>
-                <span>{element.amountType}</span>
-              </div>
-            )
-          })}
-        </Card.Body>
-      </Card>
 
     </div>
 

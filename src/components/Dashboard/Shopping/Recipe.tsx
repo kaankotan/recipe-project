@@ -5,10 +5,7 @@ import { Card, Button } from 'react-bootstrap';
 
 export default function Recipe({recipe, selected}: any) {
 
-  console.log(recipe.ingredients);
-
   const {currentUser} = useAuth()
-  console.log(selected)
 
   return (
     <div className="mb-2">
