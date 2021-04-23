@@ -20,6 +20,13 @@ const Header = props => {
         history.push('/new-recipe')
     }
 
+    const AddInventory = () => {
+        history.push('/inventory')
+    }
+
+    const AddSavedRecipe = () => {
+        history.push('/myrecipes')
+    }
 
     const handleAuthentication = () => {
         if (user) {
@@ -34,30 +41,40 @@ const Header = props => {
         <>
             <div className="header">
                 <div className="header__left">
-                    <img src={logo} alt="" />
+                    <Link to="/">
+                        <img src={logo} alt="" />
+                    </Link>
                 </div>
 
 
                 <div className="header__center">
-                    <div className="header__option">
-                        <IconButton
-                            onClick={AddRecipe}
-                        >
+                    <div className="header__option" onClick={AddRecipe}>
+                        <IconButton>
                             <LocalPharmacyIcon fontSize="large" />
                         </IconButton>
+                        <span className="header__option--text">Add Recipe</span>
                     </div>
 
-                    <div className="header__option">
-                        <StorefrontIcon fontSize="large" />
+                    <div className="header__option" onClick={AddInventory}>
+                        <IconButton>
+                            <StorefrontIcon fontSize="large" />
+                        </IconButton>
+                        <span className="header__option--text">Add Inventory</span>
                     </div>
 
-                    <div className="header__option">
-                        <KitchenIcon onClick={AddRecipe} fontSize="large" />
+                    <div className="header__option" onClick={AddSavedRecipe}>
+                     <IconButton>
+                        <KitchenIcon fontSize="large" />
+                        </IconButton>
+                        <span className="header__option--text">Added recipe</span>
                     </div>
 
-                    <div className="header__option">
+                    {/* <div className="header__option">
+                    <IconButton>
                         <SubscriptionsIcon fontSize="large" />
-                    </div>
+                    </IconButton>
+                        <span className="header__option--text">Saved recipe</span>
+                    </div> */}
                 </div>
 
 

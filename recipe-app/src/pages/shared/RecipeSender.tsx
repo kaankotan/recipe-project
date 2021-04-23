@@ -3,6 +3,10 @@ import { db } from '../../config/firebase'
 import firebase from "firebase"
 import "./styles/recipe.css"
 import Header from './header'
+import ReactNotification from 'react-notifications-component'
+import { store } from 'react-notifications-component';
+import "animate.css-react"
+import 'react-notifications-component/dist/theme.css'
 
 
 function RecipeSender() {
@@ -31,10 +35,28 @@ function RecipeSender() {
         setImageUrl("")
         setLabel("")
         setKcal("")
+
+        store.addNotification({
+            title: "New Recipe Added!",
+            message: "Successfully Added recipe",
+            type: "success",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+                duration: 5000,
+                onScreen: true,
+                showIcon: true
+            }
+
+        });
+
     }
 
     return (
         <>
+            <ReactNotification />
             <Header />
             <div className="wrapper">
                 <div className="form__container">

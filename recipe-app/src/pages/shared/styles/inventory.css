@@ -1,0 +1,134 @@
+.inventory {
+    height: 100vh;
+    width: 100vw;
+    background:linear-gradient(0deg, rgba(206, 205, 205, 0.89), rgba(8, 1, 1, 0.692)), url('../../../assets/pizzeria.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inventory__container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    width: 800px;
+    margin: auto;
+    min-height: initial;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 10px;
+    padding-bottom: 55px;
+}
+
+.add-item-box{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 0 30px;
+    justify-content: space-between;
+}
+
+.add-item-box svg {
+    margin-right: 20px;
+    background-color: #000;
+    border-radius: 15px;
+    fill: #fff;
+  }
+
+  .add-item-input {
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    color: #000;
+    width: 100%;
+    height: 30px;
+  }
+
+  input::placeholder {
+    color: #000;
+  }
+  input:focus {
+    outline: 0;
+  }
+
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+  }
+  
+  .item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px #fbc1bb solid;
+  }
+  
+  .item-name {
+    cursor: pointer;
+  }
+
+  .item-name span {
+      font-size: 16px;
+      margin-left: 50px;
+  }
+  
+  .item-name svg {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .item-action-buttons {
+    /* width: 30%; */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .remove-button {
+    color: white;
+    background-color: red;
+  }
+  
+  .total {
+    float: right;
+    padding: 10px;
+    margin-right: 35px;
+    margin-top: 25px;
+  }
+  
+  .quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ec645b;
+    background: white;
+    border-radius: 50px;
+    font-size: 12px;
+    color: #ec645b;
+    min-width: 70px;
+    justify-content: space-between;
+  }
+  
+  button {
+    background: transparent;
+    border: none;
+    margin: 3px;
+    color: #ec645b;
+  }
+  button:focus {
+    outline: 0;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+  }
+  

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../../config/firebase'
 import Header from './header';
-import RecipeSender from './RecipeSender';
+import { Listed } from './Listed';
+
 
 
 function PostRecipe() {
@@ -20,8 +21,9 @@ function PostRecipe() {
     return (
         <div className="feed">
             <Header />
-
-            {recipes.map((recipe) => (
+             <Listed />
+          
+            {/* {recipes.map((recipe) => (
                 <RecipeSender
                     key={recipe.data.id}
                     label={recipe.data.label}
@@ -29,9 +31,8 @@ function PostRecipe() {
                     image={recipe.data.image}
                     calories={recipe.data.calories}
                     timestamp={recipe.data.timestamp}
-
                 />
-            ))}
+            ))} */}
         </div>
     )
 }

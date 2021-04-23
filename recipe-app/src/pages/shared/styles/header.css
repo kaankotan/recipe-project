@@ -69,35 +69,40 @@ input :focus {
 .header__option {
     display: flex;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 5px;
     cursor: pointer;
+}
+
+.header__option--text{
+    font-size: 16px;
+    margin: 0 10px;
 }
 
 .header__option:hover{
     background-color: #eff2f5;
     border-radius: 10px;
     align-items: center;
-    padding: 0 30px;
+    padding: 10px;
     border-bottom: none;
 }
 
-.MuiSvgIcon-root{
+svg {
     fill: grey;
 }
 
-.MuiSvgIcon-fontSizeLarge {
+svg {
     font-size: 3rem;
 }
 
-.header__option > .MuiSvgIcon-root {
+.header__option > Svg {
     color:grey;
 }
 
-.header__option:hover > .MuiSvgIcon-root {
+.header__option:hover > Svg {
     color: #2e81f4;
 }
 
-.header__option--active > .MuiSvgIcon-root {
+.header__option--active > Svg {
     color: #2e81f4;
 }
 
