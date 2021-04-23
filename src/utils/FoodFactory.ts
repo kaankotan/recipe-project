@@ -12,8 +12,8 @@ export const Tomato: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['tomato', 'tomatoes'],
-  amount: null,
-  amountType: 'piece'
+  amount: 0,
+  amountType: 'kg'
 }
 
 export const Potato: Food = {
@@ -21,8 +21,8 @@ export const Potato: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['potato', 'potatoes'],
-  amount: null,
-  amountType: 'piece'
+  amount: 0,
+  amountType: 'kg'
 }
 
 export const Flour: Food = {
@@ -30,7 +30,7 @@ export const Flour: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['flour'],
-  amount: null,
+  amount: 0,
   amountType: 'grams'
 }
 
@@ -39,7 +39,7 @@ export const Water: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['water'],
-  amount: null,
+  amount: 0,
   amountType: 'ml'
 }
 
@@ -48,7 +48,7 @@ export const Corn: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['corn', 'corns'],
-  amount: null,
+  amount: 0,
   amountType: 'grams'
 }
 
@@ -57,7 +57,7 @@ export const Cheese: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['cheese'],
-  amount: null,
+  amount: 0,
   amountType: 'grams'
 }
 
@@ -66,7 +66,7 @@ export const Milk: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['milk'],
-  amount: null,
+  amount: 0,
   amountType: 'ml'
 }
 
@@ -75,7 +75,7 @@ export const Vinegar: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['vinegar'],
-  amount: null,
+  amount: 0,
   amountType: 'ml'
 }
 
@@ -84,7 +84,7 @@ export const Rice: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['rice'],
-  amount: null,
+  amount: 0,
   amountType: 'grams'
 }
 
@@ -93,7 +93,7 @@ export const Oil: Food = {
   variations: ['any', 'olive', 'sunflower'],
   selectedVariation: null,
   keywords: ['oil'],
-  amount: null,
+  amount: 0,
   amountType: 'ml'
 }
 
@@ -102,7 +102,7 @@ export const Butter: Food = {
   variations: null,
   selectedVariation: null,
   keywords: ['butter'],
-  amount: null,
+  amount: 0,
   amountType: 'ml'
 }
 

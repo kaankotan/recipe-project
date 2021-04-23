@@ -4,8 +4,8 @@ export interface NumberState {
     someNumber: number
 }
 
-export interface CustomRecipeState {
-    customRecipes: Food[]
+export interface CustomIngredientState {
+    customIngredients: Food[]
 }
 
 export interface RecipeType {
