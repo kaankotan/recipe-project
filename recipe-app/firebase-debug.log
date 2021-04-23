@@ -1,0 +1,28 @@
+[debug] [2021-04-23T10:30:11.693Z] ----------------------------------------------------------------------
+[debug] [2021-04-23T10:30:11.696Z] Command:       /Users/graphicsdesigner/.asdf/installs/nodejs/15.11.0/bin/node /usr/local/bin/firebase serve
+[debug] [2021-04-23T10:30:11.696Z] CLI Version:   9.3.0
+[debug] [2021-04-23T10:30:11.696Z] Platform:      darwin
+[debug] [2021-04-23T10:30:11.696Z] Node Version:  v15.11.0
+[debug] [2021-04-23T10:30:11.697Z] Time:          Fri Apr 23 2021 11:30:11 GMT+0100 (West Africa Standard Time)
+[debug] [2021-04-23T10:30:11.698Z] ----------------------------------------------------------------------
+[debug] [2021-04-23T10:30:11.698Z] 
+[debug] [2021-04-23T10:30:11.704Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-23T10:30:11.704Z] > authorizing via signed-in user
+[debug] [2021-04-23T10:30:11.705Z] [iam] checking project recipe-app-d9936 for permissions ["firebase.projects.get"]
+[debug] [2021-04-23T10:30:11.707Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-23T10:30:11.707Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-23T10:30:24.533Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-04-23T10:30:24.536Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/recipe-app-d9936 [none]
+[debug] [2021-04-23T10:30:37.352Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/recipe-app-d9936
+[debug] [2021-04-23T10:30:38.473Z] FirebaseError: Failed to make request to https://firebase.googleapis.com/v1beta1/projects/recipe-app-d9936
+    at Client.doRequest (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:200:19)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async Client.request (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:93:20)
+    at async Object.getFirebaseProject (/usr/local/lib/node_modules/firebase-tools/lib/management/projects.js:289:21)
+    at async getProjectNumber (/usr/local/lib/node_modules/firebase-tools/lib/getProjectNumber.js:11:22)
+    at async /usr/local/lib/node_modules/firebase-tools/lib/command.js:161:17
+[error] 
+[error] Error: Failed to get Firebase project recipe-app-d9936. Please make sure the project exists and your account has permission to access it.
