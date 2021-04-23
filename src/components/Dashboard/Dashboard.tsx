@@ -29,25 +29,29 @@ export default function Dashboard() {
   }
 
   return (
-      <>
-        <RecipeList />
-        <Card>
-          <Card.Body>
-            <h2 className="text-center mb-3">Profile</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
-            <strong>Email:</strong> {currentUser.email}
-            <Link to="/update-profile" className="btn btn-primary w-100 mt-3">Update Profile</Link>
-          </Card.Body>
-        </Card>
-        <div className="w-100 text-center mt-2">
-          <Button variant="link" onClick={handleLogout}>
-            Log Out!
-          </Button>
+      <div className="mb-5">
+        <div>
+          <RecipeList />
         </div>
-        <Link to="/add-recipe" className="btn btn-primary w-100 mt-3">Add Recipe</Link>
-        <Link to="/add-inventory" className="btn btn-primary w-100 mt-3">Inventory</Link>
-        <Link to="/search" className="btn btn-primary w-100 mt-3 shadow">Search Recipe</Link>
-        <Link to="/shopping-list" className="btn btn-primary w-100 mt-3 shadow">Shopping List</Link>
-      </>
+        <div>
+          <Card>
+            <Card.Body>
+              <h2 className="text-center mb-3">Profile</h2>
+              {error && <Alert variant="danger">{error}</Alert>}
+              <strong>Email:</strong> {currentUser.email}
+              <Link to="/add-recipe" className="btn btn-primary w-100 mt-3">Add Recipe</Link>
+              <Link to="/add-inventory" className="btn btn-primary w-100 mt-3">Inventory</Link>
+              <Link to="/search" className="btn btn-primary w-100 mt-3 shadow">Search Recipe</Link>
+              <Link to="/shopping-list" className="btn btn-primary w-100 mt-3 shadow">Shopping List</Link>
+              <Link to="/update-profile" className="btn btn-primary w-100 mt-3">Update Profile</Link>
+            </Card.Body>
+          </Card>
+          <div className="w-100 text-center mt-2">
+            <Button variant="link" onClick={handleLogout}>
+              Log Out!
+            </Button>
+          </div>
+        </div>
+      </div>
   )
 }

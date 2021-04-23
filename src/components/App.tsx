@@ -22,8 +22,8 @@ function App() {
   return (
     <div>
       <Router>
-        <CustomNavbar/>
-        <Container className="d-flex align-items-center justify-content-center"
+        <CustomNavbar />
+        <Container className="mt-5 d-flex align-items-center justify-content-center"
                    style={{minHeight: "100vh"}}
         >
           <div className="w-100">
@@ -32,7 +32,6 @@ function App() {
                 <PrivateRoute exact path="/" component={Dashboard} />
                 <PrivateRoute path="/update-profile" component={UpdateProfile} />
                 <PrivateRoute path="/add-recipe" component={AddRecipe} />
-                <PrivateRoute path="/inventory" component={Inventory} />
                 <PrivateRoute path="/add-inventory" component={AddInventory} />
                 <PrivateRoute path="/shopping-list" component={ShoppingList} />
                 <Route path="/search" component={Search}/>

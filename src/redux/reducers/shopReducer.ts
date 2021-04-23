@@ -6,7 +6,6 @@ const initialState = {
 
 export function shopReducer(state = initialState, action: any): any {
 
-  console.log(action.type);
   switch(action.type) {
     case "SELECT_RECIPE": {
       return {

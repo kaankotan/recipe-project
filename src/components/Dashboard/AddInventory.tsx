@@ -25,8 +25,6 @@ export default function AddInventory() {
     inventoryRef.on("value", (snapshot) => {
       const inventory = snapshot.val()
       for (let id in inventory) {
-        console.log(id)
-        console.log(inventory[id])
         if (inventory[id] !== null && inventory[id] !== undefined) {
           inventory[id].forEach((element: any) => {
             reduxDispatch({type: 'ADD_INGREDIENT', payload: element})

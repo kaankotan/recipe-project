@@ -5,8 +5,6 @@ import { Card, Button } from 'react-bootstrap';
 
 export default function Recipe({recipe}: any) {
 
-  console.log(recipe.ingredients);
-
   const {currentUser} = useAuth()
 
   const deleteRecipe = () => {
