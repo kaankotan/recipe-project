@@ -1,31 +1,29 @@
-import React, {FormEvent, MutableRefObject, useRef, useState} from 'react'
+import React, {FormEvent, MutableRefObject, useRef, useState, useEffect} from 'react'
 import {Form, Button, Card, Alert, Dropdown} from 'react-bootstrap'
 import {useAuth} from '../../contexts/AuthContext'
 import firebase from 'firebase';
 import { ingredients, Food  } from "../../utils/FoodFactory";
 import Ingredient from "./Ingredient";
-// @ts-ignore
-import {Link, useHistory} from 'react-router-dom'
-import {RecipeType, CustomRecipeState, CustomRecipeType} from '../../types';
+import {RecipeType, CustomIngredientState, CustomRecipeType} from '../../types';
 import {current} from "@reduxjs/toolkit";
 import { useSelector, useDispatch } from 'react-redux'
+import IngredientDropdown from "./IngredientDropdown";
+// @ts-ignore
+import {Link, useHistory} from 'react-router-dom'
 
 export default function Login() {
   const nameRef = useRef() as MutableRefObject<HTMLInputElement>
   const methodRef = useRef() as MutableRefObject<HTMLInputElement>
-  const ingredientsListRef = useRef() as MutableRefObject<HTMLButtonElement>
-
-  const recipeIngredientsRedux = useSelector<any, Food[]> (state => state.recipeReducer.customRecipes)
   const reduxDispatch = useDispatch()
-
-  function addRecipeToRedux(food: Food) {
-    reduxDispatch({type: 'ADD_RECIPE', payload: food})
-  }
-
+  const recipeIngredientsRedux = useSelector<any, Food[]> (state => state.recipeReducer.customIngredients)
   const {currentUser} = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+
+  useEffect(() => {
+    reduxDispatch({type: "RESET_INGREDIENTS"})
+  }, [])
 
   async function handleSubmit(e: FormEvent) {
 
@@ -39,9 +37,10 @@ export default function Login() {
     }
     try {
       await customRecipesRef.push(customRecipe)
+      reduxDispatch({type: "RESET_INGREDIENTS"})
       history.push("/")
-    } catch {
-      setError('Failed to submit')
+    } catch(e) {
+      setError(e)
     }
     setLoading(false)
   }
@@ -57,16 +56,7 @@ export default function Login() {
               <Form.Label>Name</Form.Label>
               <Form.Control type="name" ref={nameRef} required/>
             </Form.Group>
-            <Dropdown className="my-2">
-              <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-100" ref={ingredientsListRef}>
-                Add Ingredient
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="w-100">
-                {ingredients.map((ingredient) => {
-                  return (<Dropdown.Item onClick={function(){addRecipeToRedux(ingredient)}} key={ingredient.name}>{ingredient.name}</Dropdown.Item>)
-                })}
-              </Dropdown.Menu>
-            </Dropdown>
+            <IngredientDropdown />
             <Form.Group id="method">
               <Form.Label>Method</Form.Label>
               <Form.Control type="method" ref={methodRef} required/>

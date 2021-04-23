@@ -14,6 +14,9 @@ import './app-style.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
 import CustomNavbar from './CustomNavbar';
+import AddInventory from "./Dashboard/AddInventory";
+import Inventory from "./Dashboard/Inventory";
+import ShoppingList from "./Dashboard/Shopping/ShoppingList";
 
 function App() {
   return (
@@ -26,9 +29,12 @@ function App() {
           <div className="w-100">
             <AuthProvider>
               <Switch>
-                <PrivateRoute exact path="/" component={Dashboard}/>
-                <PrivateRoute path="/update-profile" component={UpdateProfile}/>
-                <PrivateRoute path="/add-recipe" component={AddRecipe}/>
+                <PrivateRoute exact path="/" component={Dashboard} />
+                <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                <PrivateRoute path="/add-recipe" component={AddRecipe} />
+                <PrivateRoute path="/inventory" component={Inventory} />
+                <PrivateRoute path="/add-inventory" component={AddInventory} />
+                <PrivateRoute path="/shopping-list" component={ShoppingList} />
                 <Route path="/search" component={Search}/>
                 <Route path="/signup" component={Signup}/>
                 <Route path="/login" component={Login}/>

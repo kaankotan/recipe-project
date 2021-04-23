@@ -8,7 +8,7 @@ export default function CustomNavbar() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Recipe App</Navbar.Brand>
+        <Navbar.Brand><Link to="/">Recipe App</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
