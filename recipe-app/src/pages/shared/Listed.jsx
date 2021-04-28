@@ -12,7 +12,7 @@ export const Listed = () => {
         const res = db.collection('recipes')
         const data = await res.get()
         data.docs.forEach(item => {
-            setRecipes([...recipes, item.data()])
+            getRecipes([...recipes, item.data()])
         })
     }
 
