@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../firebase'
 
+// This Context is developed with the help of a tutorial over YouTube.
 const AuthContext = React.createContext()
 
 export function useAuth() {
@@ -8,7 +9,10 @@ export function useAuth() {
 }
 
 export default function AuthProvider({ children }) {
+	// If the current user is not defined, we show login page for PrivateRoutes.
 	const [currentUser, setCurrentUser] = useState()
+	// Loading to not return any component that depends on Auth Context
+	// which would cause undefined variables in components
 	const [loading, setLoading] = useState(true)
 
 	function signup(email, password) {
@@ -36,20 +40,20 @@ export default function AuthProvider({ children }) {
 		return auth.signInWithEmailAndPassword(email, password)
 	}
 
-	// use useEffect to call this only on startup
+	// use useEffect to call this only on startup. Adding [] to the end makes it get called only once.
 	useEffect(() => {
 		// I could not understand here much.
 		// But we want to unsubscribe from here
 		// After the job is done
-		const unsubscribe = auth.onAuthStateChanged(user => {
+		const checkAuthStateChange = auth.onAuthStateChanged(user => {
 			setLoading(false)
-			// this is a firebase auth method. 
-			// this is called once firebase 
-			// returns the user
+			// this is a firebase auth method.
+
+			// setCurrentUser is called once firebase returns the user
 			setCurrentUser(user)
 		})
 
-		return unsubscribe
+		return checkAuthStateChange
 	}, [])
 
 	
