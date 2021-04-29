@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../firebase'
 
 // This Context is developed with the help of a tutorial over YouTube.
+// React Authentication Crash Course with Firebase and Routing
+// Link: https://www.youtube.com/watch?v=PKwu15ldZ7k
 const AuthContext = React.createContext()
 
 export function useAuth() {
