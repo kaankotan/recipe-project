@@ -1,12 +1,12 @@
 import React, {FormEvent, MutableRefObject, useRef, useState} from 'react'
 import {Form, Button, Card, Alert} from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuthenticationContext } from '../contexts/AuthenticationContext'
 // @ts-ignore
 import { Link } from 'react-router-dom'
 
 export default function ForgotPassword() {
     const emailRef = useRef() as MutableRefObject<HTMLInputElement>
-    const {resetPassword} = useAuth()
+    const {resetPassword} = useAuthenticationContext()
     const [error, setError] = useState('')
     const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
@@ -31,7 +31,7 @@ export default function ForgotPassword() {
 
     return (
         <div>
-            <Card>
+            <Card bg={'info'} text={'white'}>
                 <Card.Body>
                     <h2 className="text-center mb-3">Reset</h2>
                     {error && <Alert variant="danger">{error}</Alert>}
@@ -41,15 +41,15 @@ export default function ForgotPassword() {
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" ref={emailRef} required/>
                         </Form.Group>
-                        <Button disabled={loading} className="w-100" type="submit">Reset</Button>
+                        <Button disabled={loading} className="w-100 shadow btn-success btn-outline-light" type="submit">Reset</Button>
                     </Form>
                     <div className="w-100 text-center mt-3">
-                        <Link to="/login">Login</Link>
+                        <Link className="text-light" to="/login">Login</Link>
                     </div>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">
-                Don't have an account? <Link to="/signup">Sign Up</Link>
+                Don't have an account? <Link className="text-info" to="/signup">Sign Up</Link>
             </div>
         </div>
     )

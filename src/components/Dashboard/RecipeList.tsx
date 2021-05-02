@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import firebase from 'firebase';
 import Recipe from './Recipe';
-import {useAuth} from '../../contexts/AuthContext'
+import {useAuthenticationContext} from '../../contexts/AuthenticationContext'
 
 export default function RecipeList() {
   const [recipeList, setRecipeList] = useState<any[]>();
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
 
   // [] at the end means work only for once at initial render.
   useEffect(() => {

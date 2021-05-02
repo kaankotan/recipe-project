@@ -1,6 +1,6 @@
 import React from "react"
 import {Container} from "react-bootstrap";
-import AuthProvider from "../contexts/AuthContext";
+import AuthenticationContextProvider from "../contexts/AuthenticationContext";
 import Signup from "./Signup";
 import Dashboard from "./Dashboard/Dashboard"
 import Login from './Login'
@@ -12,7 +12,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import './app-style.css';
 // @ts-ignore
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import PrivateRoute from './PrivateRoute'
+import SpecialRoute from './SpecialRoute'
 import CustomNavbar from './CustomNavbar';
 import AddInventory from "./Dashboard/AddInventory";
 import Inventory from "./Dashboard/Inventory";
@@ -27,19 +27,19 @@ function App() {
                    style={{minHeight: "100vh"}}
         >
           <div className="w-100">
-            <AuthProvider>
+            <AuthenticationContextProvider>
               <Switch>
-                <PrivateRoute exact path="/" component={Dashboard} />
-                <PrivateRoute path="/update-profile" component={UpdateProfile} />
-                <PrivateRoute path="/add-recipe" component={AddRecipe} />
-                <PrivateRoute path="/add-inventory" component={AddInventory} />
-                <PrivateRoute path="/shopping-list" component={ShoppingList} />
+                <SpecialRoute exact path="/" component={Dashboard} />
+                <SpecialRoute path="/update-profile" component={UpdateProfile} />
+                <SpecialRoute path="/add-recipe" component={AddRecipe} />
+                <SpecialRoute path="/add-inventory" component={AddInventory} />
+                <SpecialRoute path="/shopping-list" component={ShoppingList} />
                 <Route path="/search" component={Search}/>
                 <Route path="/signup" component={Signup}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/forgot-password" component={ForgotPassword}/>
               </Switch>
-            </AuthProvider>
+            </AuthenticationContextProvider>
           </div>
         </Container>
       </Router>

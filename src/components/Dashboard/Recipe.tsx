@@ -1,11 +1,11 @@
 import React from 'react'
 import firebase from 'firebase';
-import {useAuth} from "../../contexts/AuthContext";
+import {useAuthenticationContext} from "../../contexts/AuthenticationContext";
 import { Card, Button } from 'react-bootstrap';
 
 export default function Recipe({recipe}: any) {
 
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
 
   const deleteRecipe = () => {
     const recipeRef = firebase.database().ref(`CustomRecipes/${currentUser.uid}/Recipes`).child(recipe.id)
@@ -34,7 +34,7 @@ export default function Recipe({recipe}: any) {
             <h5>Method</h5>
             {recipe.method}
           </Card.Body>
-          <Button onClick={deleteRecipe}>Delete</Button>
+          <Button className="btn-danger" onClick={deleteRecipe}>Delete</Button>
         </Card.Body>
       </Card>
     </div>

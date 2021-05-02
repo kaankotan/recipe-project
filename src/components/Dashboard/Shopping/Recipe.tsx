@@ -1,16 +1,16 @@
 import React from 'react'
 import firebase from 'firebase';
-import {useAuth} from "../../../contexts/AuthContext";
+import {useAuthenticationContext} from "../../../contexts/AuthenticationContext";
 import { Card, Button } from 'react-bootstrap';
 
 export default function Recipe({recipe, selected}: any) {
 
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
 
   return (
     <div className="mb-2">
       <Card className="mb-2" style={{ width: '18rem' }}>
-        {selected && <div style={{height: "25px", backgroundColor: "green"}}></div>}
+        {selected && <div style={{height: "25px", backgroundColor: "#28a745"}}></div>}
         <Card.Body>
           <Card.Title>Recipe: {recipe.name}</Card.Title>
           <Card.Body>

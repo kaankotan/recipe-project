@@ -1,10 +1,10 @@
 import React from 'react'
 // @ts-ignore
 import { Route, Redirect } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuthenticationContext } from '../contexts/AuthenticationContext'
 
-export default function PrivateRoute({ component: Component, ...rest }: any) {
-  const { currentUser } = useAuth()
+export default function SpecialRoute({ component: Component, ...rest }: any) {
+  const { currentUser } = useAuthenticationContext()
   return (
     <Route
     {...rest}
