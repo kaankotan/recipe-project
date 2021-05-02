@@ -8,12 +8,12 @@ import firebase from "firebase";
 import {CustomRecipeType} from "../../types";
 // @ts-ignore
 import {Link, useHistory} from 'react-router-dom'
-import {useAuth} from "../../contexts/AuthContext";
+import {useAuthenticationContext} from "../../contexts/AuthenticationContext";
 
 export default function AddInventory() {
 
   const history = useHistory()
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const reduxDispatch = useDispatch()

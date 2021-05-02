@@ -1,6 +1,6 @@
 import React, {FormEvent, MutableRefObject, useRef, useState, useEffect} from 'react'
 import {Form, Button, Card, Alert, Dropdown} from 'react-bootstrap'
-import {useAuth} from '../../contexts/AuthContext'
+import {useAuthenticationContext} from '../../contexts/AuthenticationContext'
 import firebase from 'firebase';
 import { ingredients, Food  } from "../../utils/FoodFactory";
 import Ingredient from "./Ingredient";
@@ -16,7 +16,7 @@ export default function Login() {
   const methodRef = useRef() as MutableRefObject<HTMLInputElement>
   const reduxDispatch = useDispatch()
   const recipeIngredientsRedux = useSelector<any, Food[]> (state => state.recipeReducer.customIngredients)
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -64,7 +64,7 @@ export default function Login() {
             {recipeIngredientsRedux && recipeIngredientsRedux.map((recipeIngredient, index) => {
               return (<Ingredient someIndex={index} ingredient={recipeIngredient} key={`${recipeIngredient.name}_${index}`} />)
             })}
-            <Button disabled={loading} className="w-100" type="submit">Submit</Button>
+            <Button disabled={loading} className="w-100 shadow btn btn-success" type="submit">Submit</Button>
           </Form>
         </Card.Body>
       </Card>

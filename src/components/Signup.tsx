@@ -1,6 +1,6 @@
 import React, {FormEvent, MutableRefObject, useRef, useState} from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuthenticationContext } from '../contexts/AuthenticationContext'
 // @ts-ignore
 import { Link, useHistory } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ export default function Signup() {
 	const emailRef = useRef() as MutableRefObject<HTMLInputElement>
 	const passwordRef = useRef() as MutableRefObject<HTMLInputElement>
 	const passwordConfirmRef = useRef() as MutableRefObject<HTMLInputElement>
-	const { signup } = useAuth()
+	const { signup } = useAuthenticationContext()
 	const [error, setError] = useState('')
 	const [loading, setLoading] = useState(false)
 	const history = useHistory()
@@ -34,10 +34,10 @@ export default function Signup() {
 	}
 
 	return (
-		<div style={{maxWidth: "400px"}}>
-			<Card>
+		<div>
+			<Card bg={'info'} text={'white'}>
 				<Card.Body>
-					<h2 className="text-center mb-3">Sign Up</h2>
+					<h2 className="text-center mb-3">Recipe App - Signup</h2>
 					{error && <Alert variant="danger">{error}</Alert>}
 					<Form onSubmit={handleSubmit}>
 						<Form.Group id="email">
@@ -52,12 +52,12 @@ export default function Signup() {
 							<Form.Label>password-confirm</Form.Label>
 							<Form.Control type="password-confirm" ref={passwordConfirmRef} required />
 						</Form.Group>
-						<Button disabled={loading} className="w-100" type="submit">Sign Up</Button>
+						<Button disabled={loading} className="w-100 shadow btn-success btn-outline-light" type="submit">Sign Up</Button>
 					</Form>
 				</Card.Body>
 			</Card>
 			<div className="w-100 text-center mt-2">
-				Already have an account? <Link to="/login">Log In!</Link>
+				Already have an account? <Link className="text-info" to="/login">Log In!</Link>
 			</div>
 		</div>
 	)

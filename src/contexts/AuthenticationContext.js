@@ -4,13 +4,14 @@ import { auth } from '../firebase'
 // This Context is developed with the help of a tutorial over YouTube.
 // React Authentication Crash Course with Firebase and Routing
 // Link: https://www.youtube.com/watch?v=PKwu15ldZ7k
-const AuthContext = React.createContext()
+const AuthenticationContext = React.createContext()
 
-export function useAuth() {
-	return useContext(AuthContext)
+export function useAuthenticationContext() {
+	return useContext(AuthenticationContext)
 }
 
-export default function AuthProvider({ children }) {
+export default function AuthenticationContextProvider({ children }) {
+	// We will use firebase methods to support signup, login and edit user.
 	// If the current user is not defined, we show login page for PrivateRoutes.
 	const [currentUser, setCurrentUser] = useState()
 	// Loading to not return any component that depends on Auth Context
@@ -45,8 +46,7 @@ export default function AuthProvider({ children }) {
 	// use useEffect to call this only on startup. Adding [] to the end makes it get called only once.
 	useEffect(() => {
 		// I could not understand here much.
-		// But we want to unsubscribe from here
-		// After the job is done
+		// But we want to unsubscribe from here so we add [] argument to useEffect
 		const checkAuthStateChange = auth.onAuthStateChanged(user => {
 			setLoading(false)
 			// this is a firebase auth method.
@@ -70,8 +70,8 @@ export default function AuthProvider({ children }) {
 	}
 
 	return (
-		<AuthContext.Provider value={value}>
+		<AuthenticationContext.Provider value={value}>
 			{!loading && children}
-		</AuthContext.Provider>
+		</AuthenticationContext.Provider>
 	)
 }

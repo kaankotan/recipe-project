@@ -14,8 +14,8 @@ export default function IngredientDropdown() {
   }
 
   return (
-    <Dropdown className="my-2">
-      <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-100" ref={ingredientsListRef}>
+    <Dropdown className="my-2 shadow">
+      <Dropdown.Toggle variant="dark" id="dropdown-basic" className="w-100" ref={ingredientsListRef}>
         Add Ingredient
       </Dropdown.Toggle>
       <Dropdown.Menu className="w-100">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Button, Alert } from 'react-bootstrap'
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuthenticationContext } from '../../contexts/AuthenticationContext'
 import firebase from 'firebase';
 import { useSelector, useDispatch } from 'react-redux'
 import {NumberState} from "../../types";
@@ -11,7 +11,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 export default function Dashboard() {
   const [error, setError] = useState('')
-  const { currentUser, logout } = useAuth()
+  const { currentUser, logout } = useAuthenticationContext()
   const { history } = useHistory()
 
   const amount = useSelector<any, number>(state => state.numberReducer.someNumber)
@@ -39,15 +39,15 @@ export default function Dashboard() {
               <h2 className="text-center mb-3">Profile</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <strong>Email:</strong> {currentUser.email}
-              <Link to="/add-recipe" className="btn btn-primary w-100 mt-3">Add Recipe</Link>
-              <Link to="/add-inventory" className="btn btn-primary w-100 mt-3">Inventory</Link>
-              <Link to="/search" className="btn btn-primary w-100 mt-3 shadow">Search Recipe</Link>
-              <Link to="/shopping-list" className="btn btn-primary w-100 mt-3 shadow">Shopping List</Link>
+              <Link to="/add-recipe" className="btn btn-secondary w-100 mt-3">Add Recipe</Link>
+              <Link to="/add-inventory" className="btn btn-secondary w-100 mt-3">Inventory</Link>
+              <Link to="/search" className="btn btn-secondary w-100 mt-3 shadow">Search Recipe</Link>
+              <Link to="/shopping-list" className="btn btn-success w-100 mt-3 shadow">Shopping List</Link>
               <Link to="/update-profile" className="btn btn-primary w-100 mt-3">Update Profile</Link>
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-            <Button variant="link" onClick={handleLogout}>
+            <Button className="text-danger" variant="link" onClick={handleLogout}>
               Log Out!
             </Button>
           </div>

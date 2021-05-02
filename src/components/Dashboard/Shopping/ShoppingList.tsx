@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { Food } from '../../../utils/FoodFactory';
-import { useSelector, useDispatch } from 'react-redux';
+import {Food} from '../../../utils/FoodFactory';
+import {useSelector, useDispatch} from 'react-redux';
 import firebase from "firebase";
-import {useAuth} from "../../../contexts/AuthContext";
+import {useAuthenticationContext} from "../../../contexts/AuthenticationContext";
 import Recipe from './Recipe';
-import { Card } from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 export default function ShoppingList() {
 
@@ -12,7 +12,7 @@ export default function ShoppingList() {
   const [inventory, setInventory] = useState<any[]>();
   const [shoppingList, setShoppingList] = useState<any[]>();
   const [selectedRecipe, setSelectedRecipe] = useState<number>();
-  const {currentUser} = useAuth()
+  const {currentUser} = useAuthenticationContext()
   const reduxDispatch = useDispatch()
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function ShoppingList() {
       const recipes = snapshot.val();
       const recipeList = [];
       for (let id in recipes) {
-        recipeList.push({ id,...recipes[id] })
+        recipeList.push({id, ...recipes[id]})
       }
       setRecipeList(recipeList);
     })
@@ -36,7 +36,7 @@ export default function ShoppingList() {
       setInventory(inventory);
     })
 
-  },[])
+  }, [])
 
   function clickHandler(index: any) {
     setSelectedRecipe(index);
@@ -45,13 +45,13 @@ export default function ShoppingList() {
   function checkMissingIngredients() {
     let resultArray: { name: any; amount: any; amountType: any; }[] = [];
     if (recipeList !== undefined) {
-      if(selectedRecipe !== undefined) {
+      if (selectedRecipe !== undefined) {
         recipeList[selectedRecipe].ingredients.map((element: any, index: any) => {
           if (inventory) {
             const inventoryArray = inventory[0]
-            const relativeIndex = inventoryArray.findIndex((inventoryElement: any ) => inventoryElement.name === element.name )
-            if(relativeIndex > -1) {
-              if(inventoryArray[relativeIndex].amount < element.amount) {
+            const relativeIndex = inventoryArray.findIndex((inventoryElement: any) => inventoryElement.name === element.name)
+            if (relativeIndex > -1) {
+              if (inventoryArray[relativeIndex].amount < element.amount) {
                 resultArray.push({
                   name: inventoryArray[relativeIndex].name,
                   amount: element.amount - inventoryArray[relativeIndex].amount,
@@ -79,7 +79,9 @@ export default function ShoppingList() {
           <h5>Recipes</h5>
           {recipeList !== undefined && recipeList.map((recipe: any, index: any) => {
             return (
-              <div onClick={function (){clickHandler(index)}} style={{cursor: 'pointer'}}>
+              <div onClick={function () {
+                clickHandler(index)
+              }} style={{cursor: 'pointer'}}>
                 <Recipe recipe={recipe} selected={selectedRecipe === index} key={`${recipe.name}_${index}`}/>
               </div>
             )
@@ -87,21 +89,26 @@ export default function ShoppingList() {
         </div>
         <div>
           <h5>Inventory</h5>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{width: '18rem'}}>
             <Card.Body>
-              {inventory && inventory[0].map((element: any, index: any) => {
-                return (
-                  <div key={`${element.name}_${index}`}>
-                    <span>{element.name}: </span>
-                    <span>{element.amount} </span>
-                    <span>{element.amountType}</span>
-                  </div>
-                )
-              })}
+              {inventory?.[0] !== undefined ? inventory[0].map((element: any, index: any) => {
+                  return (
+                    <div key={`${element.name}_${index}`}>
+                      <span>{element.name}: </span>
+                      <span>{element.amount} </span>
+                      <span>{element.amountType}</span>
+                    </div>
+                  )
+                })
+                :
+                null
+              }
             </Card.Body>
           </Card>
-          { selectedRecipe !== undefined && inventory ? <button className="btn btn-danger mt-4 mb-2" onClick={checkMissingIngredients}>Check missing ingredients</button>: null }
-          <Card className="mt-2" style={{ width: '18rem' }}>
+          {selectedRecipe !== undefined && inventory ?
+            <button className="shadow btn btn-success mt-4 mb-2" onClick={checkMissingIngredients}>Check missing
+              ingredients</button> : null}
+          <Card className="mt-2" style={{width: '18rem'}}>
             <Card.Body>
               <h5>Shopping List</h5>
               {shoppingList && shoppingList.map((element: any, index: any) => {
